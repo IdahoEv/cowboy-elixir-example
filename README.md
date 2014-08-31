@@ -1,7 +1,7 @@
 CowboyElixirExample
 ===================
 
-Examples of using the cowboy web server framework in Elixir.  I wrote these because the only other good example I could find was out of date - it had been written before Hex became a thing, and didn't work with current versions of Elixir.
+Examples of using the [Cowboy web server](http://ninenines.eu/docs/en/cowboy/HEAD/guide/introduction/) with [Elixir](http://elixir-lang.org/).  I wrote these because the only other good example I could find was out of date - it had been written before [Hex](http://hex.pm) became a thing, and didn't work with current versions of Elixir.
 
 This one is tested to work with:
 * Elixir 0.15.1
