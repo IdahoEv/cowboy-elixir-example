@@ -26,7 +26,14 @@ Examples included:
 * Accepting a GET request and replying with a JSON object  (coming soon)
 * Opening a websocket and pushing a reply to the client periodically (coming soon)
 
-License
--------
+
+Contributing:
+-------------
+
+Pull requests are welcomed.  Since this is an example designed for folks new to both Elixir and Cowboy,
+make sure all code is very thoroughly documented, please. :-)
+
+License:
+--------
 
 This code is released under the MIT license.  See LICENSE.
