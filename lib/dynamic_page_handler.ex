@@ -5,8 +5,7 @@ defmodule DynamicPageHandler do
 
   # We are using the plain HTTP handler.  See the documentation here:
   #     http://ninenines.eu/docs/en/cowboy/HEAD/manual/cowboy_http_handler/
-  #@behaviour :cowboy_http_handler
-
+  #
   # All cowboy HTTP handlers require an init() function, identifies which
   # type of handler this is and returns an initial state (if the handler
   # maintains state).  In a plain http handler, you just return a 
@@ -83,7 +82,7 @@ defmodule DynamicPageHandler do
 """
   end
 
-  def dl_headers(request) do
+  def dl_headers(request) do  
     {headers, req2 } = :cowboy_req.headers(request)
     Enum.map(headers, fn item -> "<dt>#{elem(item, 0)}</dt><dd>#{elem(item, 1)}</dd>" end)
   end
