@@ -12,9 +12,9 @@ Usage:
 
 Make sure you have elixir >= 0.15.1 installed.  Clone the repo, and change directory to it.  Run the following commands:
 
-   mix deps.get
-   mix deps.compile
-   iex -S mix
+    mix deps.get
+    mix deps.compile
+    iex -S mix
 
 Then open a browser to localhost:8080.
 
