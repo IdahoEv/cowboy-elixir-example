@@ -1,0 +1,5 @@
+%{"cowboy": {:package, "1.0.0"},
+  "cowlib": {:package, "1.0.0"},
+  "jsex": {:package, "2.0.0"},
+  "jsx": {:package, "2.0.4"},
+  "ranch": {:package, "1.0.0"}}
