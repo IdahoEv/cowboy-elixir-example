@@ -12,7 +12,10 @@ defmodule CowboyElixirExample.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
+    [
+      mod: { CowboyElixirExample, [] },
+      applications: [:cowboy, :ranch] 
+    ]
   end
 
   # Dependencies can be Hex packages:

@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Static File Example -- Cowboy Elixir Example</title>
+    <link href='/static/css/styles.css' rel='stylesheet' type='text/css'/>
+  </head>
+  <body>
+    <div id='main'>
+      <h1>Cowboy Elixir Example</h1>
+      <p>
+        This file is served from <code>priv/index.html</code> 
+        because of this route in <code>cowboy_elixir_example.ex</code>:        
+      </p>
+      <pre>
+         {"/", :cowboy_static, {:priv_file,  :cowboy_elixir_example, "index.html"}}
+      </pre>
+
+      <h2>Other things to check out:</h2>
+      <ul>
+        <li><a href='/static/static_example.html'>A file served from static subdirectory.</a></li>
+        <li>A dynamic HTML file (coming soon)</li>
+        <li>A websocket that pushes to the client periodically (coming soon)</li>
+      </ul>     
+    </div>
+  </body>
+</html>
+ 

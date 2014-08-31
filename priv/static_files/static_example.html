@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Static File Example -- Cowboy Elixir Example</title>
+    <link href='/static/css/styles.css' rel='stylesheet' type='text/css'/>
+  </head>
+  <body>
+    <div id='main'>
+      <h1>Static example from directory</h1>
+      <p>
+        This file is served from the <code>priv/static_files</code> directory because of the following route 
+        in <code>cowboy_elixir_example.ex</code>:        
+      </p>
+      <pre>
+         {"/static/[...]", :cowboy_static, {:priv_dir,  :cowboy_elixir_example, "static_files"}}
+      </pre>
+      <h2>Static Assets</h2>
+      <p><code>:priv_dir</code> is also typically used to serve other static assets like images, stylesheets,
+      javascript files, etc. The <code>:priv_dir</code> route matcher descends into subdirectories. 
+      This file includes several, explicitly listed below.</p>
+      <ul>
+        <li><a href="/static/images/sample.png">/static/images/sample.png</a></li>
+        <li><a href="/static/css/styles.css">/static/css/styles.css</a></li>
+      </ul>
+      <h2>Embedded Image</h2>
+      <img src="/static/images/sample.png" alt="example image. television color bars" />
+    </div>
+  </body>
+</html>
+
+

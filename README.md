@@ -5,13 +5,28 @@ Examples of using the cowboy web server framework in Elixir.  I wrote these beca
 
 This one is tested to work with:
 * Elixir 0.15.1
-* Cowboy 
+* Cowboy 1.0.0
+
+Usage:
+------------------
+
+Make sure you have elixir >= 0.15.1 installed.  Clone the repo, and change directory to it.  Run the following commands:
+
+   mix deps.get
+   mix deps.compile
+   iex -S mix
+
+Then open a browser to localhost:8080.
 
 Examples included:
 ------------------
 
 * Serving static files
-* Accepting a GET request and replying with a JSON object
-* Opening a websocket and pushing a reply to the client periodically
+* Dynamic HTML (coming soon)
+* Accepting a GET request and replying with a JSON object  (coming soon)
+* Opening a websocket and pushing a reply to the client periodically (coming soon)
 
+License
+-------
 
+This code is released under the MIT license.  See LICENSE.
