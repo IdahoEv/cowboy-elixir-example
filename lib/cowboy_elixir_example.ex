@@ -41,7 +41,12 @@ defmodule CowboyElixirExample do
           #   :cowboy_elixir_example -- application name.  This is used to search for
           #                             the path that priv/ exists in.
           #   "static_files"         -- directory to look for files in 
-          {"/static/[...]", :cowboy_static, {:priv_dir,  :cowboy_elixir_example, "static_files"}}
+          {"/static/[...]", :cowboy_static, {:priv_dir,  :cowboy_elixir_example, "static_files"}},
+
+          # Serve a dynamic page with a custom handler
+          # When a request is sent to "/dynamic", pass the request to the custom handler
+          # defined in module DynamicPageHandler.
+          {"/dynamic", DynamicPageHandler, []}
       ]}
     ])
     { :ok, _ } = :cowboy.start_http(:http, 
@@ -55,5 +60,6 @@ defmodule CowboyElixirExample do
     #IEx.configure([colors: [enabled: false]]) 
     #Dbg.reset                               
     #CowboyElixirExample.Supervisor.start_link []
+    CowboyElixirExample.Supervisor.start_link([])
   end
 end

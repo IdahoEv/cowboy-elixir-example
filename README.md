@@ -22,9 +22,9 @@ Examples included:
 ------------------
 
 * Serving static files
-* Dynamic HTML (coming soon)
-* Accepting a GET request and replying with a JSON object  (coming soon)
-* Opening a websocket and pushing a reply to the client periodically (coming soon)
+* Dynamic HTML with a custom handler
+* (Coming Soon) Accepting a GET request and replying with a JSON object 
+* (Coming Soon) Opening a websocket and pushing a message to the client periodically 
 
 
 Contributing:
