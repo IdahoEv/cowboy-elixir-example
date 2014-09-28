@@ -59,7 +59,6 @@ defmodule CowboyElixirExample do
     #Application.put_env(:dbg, :device, device) 
     #IEx.configure([colors: [enabled: false]]) 
     #Dbg.reset                               
-    #CowboyElixirExample.Supervisor.start_link []
-    CowboyElixirExample.Supervisor.start_link([])
+    #CowboyElixirExample.Supervisor.start_link([])
   end
 end
