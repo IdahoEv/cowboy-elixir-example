@@ -48,6 +48,7 @@ defmodule CowboyElixirExample do
           # defined in module DynamicPageHandler.
           {"/dynamic", DynamicPageHandler, []},
 
+          # Serve websocket requests.
           {"/websocket", WebsocketHandler, []}
       ]}
     ])

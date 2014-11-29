@@ -25,9 +25,22 @@
             The server periodically pushes a message containing the server time.  The JS
             code writes that time into the page below, whenver such a message is received.
           </p>
-          <div id='server_time'>
+          <div>
+            <h3>Server Time: <span id='server_time'></span></h3>
           </div>
         </div>
+        <div id="pull">
+          <h2>Sychronous pulls from server</h2>
+          <p>
+            Click the button below to send a message to the server and get a reply.
+          </p>
+          <input id='message_string' placeholder='Enter a message'></input>
+          <button id='send'>Send</button>
+          <div>
+            <h3>Server Reply: <span id='server_reply'></span></h3>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -38,6 +51,7 @@ var SocketHandler = (function(){
     messages = 0;
 
   my.init = function(){
+    $('#send').click(sendMessage);
     connect();
   }  
   function connect() {
@@ -57,15 +71,19 @@ var SocketHandler = (function(){
       if ( message.time !== undefined) {
         $('#server_time').html(message.time);
       }
-      else {
-        showScreen('<span style="color: blue;">RESPONSE: ' + evt.data+ '</span>'); 
+      if(message.reply !== undefined) {
+        $('#server_reply').html(message.reply);
       }
     //} catch(err) {
       //console.log(err); 
       //console.log("Could not JSON parse event message: "+evt.data)
     //}
   };  
-
+  function sendMessage(){
+    value = $('#message_string').val();
+    message = { 'message': value};
+    websocket.send(JSON.stringify(message));
+  }
   function disconnect() {
     websocket.close();
   }; 

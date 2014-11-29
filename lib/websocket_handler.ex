@@ -11,8 +11,19 @@ defmodule WebsocketHandler do
     {:ok, req, :undefined_state }
   end
 
-  def websocket_handle(message, req, state) do
-    IO.puts "Received message: #{inspect(message)}"
+  def websocket_handle({:text, content}, req, state) do
+    { :ok, body } = JSEX.decode(content)
+    %{ "message" => message } = body
+    IO.puts "Received message: #{message}"
+    rev = String.reverse(message)
+    IO.puts "Reversed message: #{rev}"
+    { :ok, reply } = JSEX.encode(%{ "reply" => rev})
+    IO.puts "Replying with: #{inspect(reply)}"
+    {:reply, {:text, reply}, req, state}
+  end
+  
+  def websocket_handle(_data, req, state) do    
+    {:ok, req, state}
   end
 
   def websocket_terminate(_reason, _req, _state) do
