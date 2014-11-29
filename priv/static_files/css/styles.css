@@ -15,7 +15,7 @@ body {
 code {
   font-family: monospace;
 }
-span.time {
+span.time, .reply {
   display: inline-block;
   padding: 0.5em;
   background: black;
@@ -29,4 +29,12 @@ dt {
 }
 dd {
   margin-bottom: 1em;
+}
+#push {
+  width: 45%;
+  float: left;
+}
+#pull {
+  width: 45%;
+  float: right;
 }

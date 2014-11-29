@@ -17,27 +17,28 @@
           data as below.
         </p>
       </div>
+      <hr>
       <div id='dynamic'>
         <h2 id='statusbar'>Status: <span id='status'></span></h2>
         <div id="push">
           <h2>Asychronous pushes from server</h2>
           <p>
             The server periodically pushes a message containing the server time.  The JS
-            code writes that time into the page below, whenver such a message is received.
+            code writes that time into the page below, whenever such a message is received.
           </p>
           <div>
-            <h3>Server Time: <span id='server_time'></span></h3>
+            <h3>Server Time: <span id='server_time' class='time'></span></h3>
           </div>
         </div>
         <div id="pull">
-          <h2>Sychronous pulls from server</h2>
+          <h2>Synchronous pulls from server</h2>
           <p>
             Click the button below to send a message to the server and get a reply.
           </p>
           <input id='message_string' placeholder='Enter a message'></input>
           <button id='send'>Send</button>
           <div>
-            <h3>Server Reply: <span id='server_reply'></span></h3>
+            <h3>Server Reply: <span id='server_reply' class='reply'>&nbsp;</span></h3>
           </div>
         </div>
 
@@ -55,35 +56,29 @@ var SocketHandler = (function(){
     connect();
   }  
   function connect() {
-    //wsHost = $("#server").val()
     websocket = new WebSocket('ws://localhost:8080/websocket');
-    //showScreen('<b>Connecting to: ' +  wsHost + '</b>'); 
     websocket.onopen = function(evt) { onOpen(evt) }; 
     websocket.onclose = function(evt) { onClose(evt) }; 
     websocket.onmessage = function(evt) { onMessage(evt) }; 
-    //websocket.onerror = function(evt) { onError(evt) }; 
   };  
 
   function onMessage(evt) { 
-    console.log(evt.data);
-    //try {
-      message = JSON.parse(evt.data);
-      if ( message.time !== undefined) {
-        $('#server_time').html(message.time);
-      }
-      if(message.reply !== undefined) {
-        $('#server_reply').html(message.reply);
-      }
-    //} catch(err) {
-      //console.log(err); 
-      //console.log("Could not JSON parse event message: "+evt.data)
-    //}
+    //console.log(evt.data);
+    message = JSON.parse(evt.data);
+    if ( message.time !== undefined) {
+      $('#server_time').html(message.time);
+    }
+    if(message.reply !== undefined) {
+      $('#server_reply').html(message.reply);
+    }
   };  
+
   function sendMessage(){
     value = $('#message_string').val();
     message = { 'message': value};
     websocket.send(JSON.stringify(message));
-  }
+  };
+
   function disconnect() {
     websocket.close();
   }; 
