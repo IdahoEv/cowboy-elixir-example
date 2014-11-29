@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>Websocket Example -- Cowboy Elixir Example</title>
+    <link href='/static/css/styles.css' rel='stylesheet' type='text/css'/>
+    <script src="/static/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id='main'>
+      <div id='header'>
+        <h1>Websocket Example</h1>
+        <p>
+          This HTML file itself, and the linked Javascript file, are served from the 
+          <code>priv/static_files</code> directory 
+          via the mechanism described in the 
+          <a href='/static/static_example.html'>Static File Example</a>.
+          The JavaScript opens a websocket at "/websocket", and pushes and pulls 
+          data as below.
+        </p>
+      </div>
+      <div id='dynamic'>
+        <h2 id='statusbar'>Status: <span id='status'></span></h2>
+        <div id="push">
+          <h2>Asychronous pushes from server</h2>
+          <p>
+            The server periodically pushes a message containing the server time.  The JS
+            code writes that time into the page below, whenver such a message is received.
+          </p>
+          <div id='server_time'>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script>
+var SocketHandler = (function(){
+  var my = {},
+    websocket,
+    messages = 0;
+
+  my.init = function(){
+    connect();
+  }  
+  function connect() {
+    //wsHost = $("#server").val()
+    websocket = new WebSocket('ws://localhost:8080/websocket');
+    //showScreen('<b>Connecting to: ' +  wsHost + '</b>'); 
+    websocket.onopen = function(evt) { onOpen(evt) }; 
+    websocket.onclose = function(evt) { onClose(evt) }; 
+    websocket.onmessage = function(evt) { onMessage(evt) }; 
+    //websocket.onerror = function(evt) { onError(evt) }; 
+  };  
+
+  function onMessage(evt) { 
+    console.log(evt.data);
+    //try {
+      message = JSON.parse(evt.data);
+      if ( message.time !== undefined) {
+        $('#server_time').html(message.time);
+      }
+      else {
+        showScreen('<span style="color: blue;">RESPONSE: ' + evt.data+ '</span>'); 
+      }
+    //} catch(err) {
+      //console.log(err); 
+      //console.log("Could not JSON parse event message: "+evt.data)
+    //}
+  };  
+
+  function disconnect() {
+    websocket.close();
+  }; 
+
+  function onOpen(evt) { 
+    updateStatus('<span style="color: green;">CONNECTED </span>'); 
+  };  
+
+  function onClose(evt) { 
+    updateStatus('<span style="color: red;">DISCONNECTED </span>');
+  };  
+
+  function updateStatus(txt) { 
+    $('#status').html(txt);
+  };
+
+  return my;
+}());
+SocketHandler.init();
+  </script>
+  </body>
+</html>
+
+

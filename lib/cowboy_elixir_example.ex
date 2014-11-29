@@ -46,7 +46,9 @@ defmodule CowboyElixirExample do
           # Serve a dynamic page with a custom handler
           # When a request is sent to "/dynamic", pass the request to the custom handler
           # defined in module DynamicPageHandler.
-          {"/dynamic", DynamicPageHandler, []}
+          {"/dynamic", DynamicPageHandler, []},
+
+          {"/websocket", WebsocketHandler, []}
       ]}
     ])
     { :ok, _ } = :cowboy.start_http(:http, 
