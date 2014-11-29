@@ -23,8 +23,8 @@ Examples included:
 
 * Serving static files
 * Dynamic HTML with a custom handler
+* Opening a websocket and pushing a message to the client periodically 
 * (Coming Soon) Accepting a GET request and replying with a JSON object 
-* (Coming Soon) Opening a websocket and pushing a message to the client periodically 
 
 
 Contributing:
