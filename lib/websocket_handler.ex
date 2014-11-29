@@ -72,9 +72,7 @@ defmodule WebsocketHandler do
   # of messages and pass information out the websocket to the client.
   def websocket_info({timeout, _ref, _foo}, req, state) do
 
-    # Get the current time and format it as a string
-    {hh,mm,ss} = :erlang.time()
-    time = "#{hh}:#{mm}:#{ss}"
+    time = time_as_string()
 
     # encode a json reply in the variable 'message'
     { :ok, message } = JSEX.encode(%{ time: time})
@@ -94,6 +92,12 @@ defmodule WebsocketHandler do
   # fallback message handler 
   def websocket_info(_info, req, state) do
     {:ok, req, state}
+  end
+
+  def time_as_string do
+    {hh,mm,ss} = :erlang.time()
+    :io_lib.format("~2.10.0B:~2.10.0B:~2.10.0B",[hh,mm,ss])
+      |> :erlang.list_to_binary()
   end
 
 end
