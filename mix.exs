@@ -3,8 +3,8 @@ defmodule CowboyElixirExample.Mixfile do
 
   def project do
     [app: :cowboy_elixir_example,
-     version: "0.0.2",
-     elixir: "~> 1.2.0",
+     version: "0.0.3",
+     elixir: ">= 1.0.0",
      deps: deps]
   end
 
