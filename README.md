@@ -1,7 +1,7 @@
 Cowboy Elixir Example
 ===================
 
-Examples of using the [Cowboy web server](http://ninenines.eu/docs/) with [Elixir](http://elixir-lang.org/).  I wrote these because the only other good example I could find was out of date - it had been written before [Hex](http://hex.pm) became a thing, and didn't work with current versions of Elixir.
+Examples of using the [Cowboy web server](http://ninenines.eu/docs/) with [Elixir](http://elixir-lang.org/).  I wrote these because I personally found the documenation for Cowboy to be inscrutable and difficult, and all the up-to-date examples were in Erlang, rather than Elixir.  My goal here is to show simple usage of the main features of Cowboy, with plenty of documentation, to save others the time I spent puzzling this out.
 
 This one is tested to work with:
 * Elixir 1.3.x, 1.2.x, 1.0.x, and  0.15.1 (with edit to dependencies)
@@ -24,7 +24,7 @@ Examples included:
 * Serving static files
 * Dynamic HTML with a custom handler
 * Opening a websocket and pushing a message to the client periodically
-* (Coming Soon) Accepting a GET request and replying with a JSON object
+* (Planned) Accepting a GET request and replying with a JSON object
 
 
 Contributing:
