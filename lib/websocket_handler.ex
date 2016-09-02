@@ -3,7 +3,7 @@ defmodule WebsocketHandler do
 
 
   # We are using the websocket handler.  See the documentation here:
-  #     http://ninenines.eu/docs/en/cowboy/HEAD/manual/websocket_handler/
+  #     http://ninenines.eu/docs/en/cowboy/1.0/manual/cowboy_http_handler//manual/websocket_handler/
   #
   # All cowboy HTTP handlers require an init() function, identifies which
   # type of handler this is and returns an initial state (if the handler

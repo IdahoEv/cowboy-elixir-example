@@ -1,24 +1,31 @@
 
-# A cowboy handler for serving a single dynamic wepbage. No templates are used; the
-# HTML is all generated within the handler.
 defmodule DynamicPageHandler do
+  @moduledoc """
+  A cowboy handler for serving a single dynamic wepbage. No templates are used; the
+  HTML is all generated within the handler.
+  """
 
-  # We are using the plain HTTP handler.  See the documentation here:
-  #     http://ninenines.eu/docs/en/cowboy/HEAD/manual/cowboy_http_handler/
-  #
-  # All cowboy HTTP handlers require an init() function, identifies which
-  # type of handler this is and returns an initial state (if the handler
-  # maintains state).  In a plain http handler, you just return a
-  # 3-tuple with :ok.  We don't need to track a  state in this handler, so
-  # we're returning the atom :no_state.
+  @doc """
+  inititalize a plain HTTP handler.  See the documentation here:
+      http://ninenines.eu/docs/en/cowboy/1.0/manual/cowboy_http_handler/
+
+  All cowboy HTTP handlers require an init() function, identifies which
+  type of handler this is and returns an initial state (if the handler
+  maintains state).  In a plain http handler, you just return a
+  3-tuple with :ok.  We don't need to track a  state in this handler, so
+  we're returning the atom :no_state.
+  """
   def init(_type, req, []) do
     {:ok, req, :no_state}
   end
 
+  @doc """
+  Handle a single HTTP request.
 
-  # In a cowboy handler, the handle/2 function does the work. It should return
-  # a 3-tuple with :ok, a request object (containing the reply), and the current
-  # state.
+  In a cowboy handler, the handle/2 function does the work. It should return
+  a 3-tuple with :ok, a request object (containing the reply), and the current
+  state.
+  """
   def handle(request, state) do
     # construct a reply, using the cowboy_req:reply/4 function.
     #
@@ -47,8 +54,13 @@ defmodule DynamicPageHandler do
     {:ok, reply, state}
   end
 
-  # Termination handler.  Usually you don't do much with this.  If things are breaking,
-  # try uncommenting the output lines here to get some more info on what's happening.
+
+  @doc """
+  Do any cleanup necessary for the termination of this handler.
+
+  Usually you don't do much with this.  If things are breaking,
+  try uncommenting the output lines here to get some more info on what's happening.
+  """
   def terminate(_reason, _request, _state) do
     #IO.puts("Terminating for reason: #{inspect(reason)}")
     #IO.puts("Terminating after request: #{inspect(request)}")
@@ -57,6 +69,9 @@ defmodule DynamicPageHandler do
   end
 
 
+  @doc """
+  Assemble the body of a response in HTML.
+  """
   def build_body(request) do
     """
     <html>
@@ -82,6 +97,9 @@ defmodule DynamicPageHandler do
 """
   end
 
+  @doc """
+  Build the contents of a <dl> containing all the request headers.
+  """
   def dl_headers(request) do
     {headers, _req2 } = :cowboy_req.headers(request)
     Enum.map(headers, fn item -> "<dt>#{elem(item, 0)}</dt><dd>#{elem(item, 1)}</dd>" end)
