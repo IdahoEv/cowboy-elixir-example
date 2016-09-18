@@ -1,5 +1,5 @@
-%{"cowboy": {:hex, :cowboy, "1.0.0", "d0b46a5e5f971c5543eb46f86fe76b9add567d12fb5262a852b8f27c64c0555d", [:make, :rebar], [{:cowlib, "~> 1.0.0", [hex: :cowlib, optional: false]}, {:ranch, "~> 1.0", [hex: :ranch, optional: false]}]},
-  "cowlib": {:hex, :cowlib, "1.0.0", "397d890d669e56d486b0b5329973ad1a07012412bc110d34a737698dd6941741", [:make], []},
+%{"cowboy": {:git, "https://github.com/ninenines/cowboy.git", "dbb636034f20736e16eb9d6c809217c9525b6cbd", [tag: "2.0.0-pre.3"]},
+  "cowlib": {:git, "https://github.com/ninenines/cowlib", "8cf98c9f3d1292c1b08fca5ca99772ae912eaa86", [ref: "master"]},
   "jsex": {:hex, :jsex, "2.0.0", "d54a39e49418b34b1a78236a92f73e4d7c46329c220275d7223fab4b3dc6120f", [:mix], [{:jsx, "~> 2.0", [hex: :jsx, optional: false]}]},
   "jsx": {:hex, :jsx, "2.0.4", "6f22bd27bf0cf89626caa27f93ed4bfbf7ba5cc9d42a43656f1d247b0e170eaa", [:rebar], []},
-  "ranch": {:hex, :ranch, "1.0.0", "e3ac054e4265de77e2d2696dd7e1d6a67b7525aade13ba10c860e7f499a0d433", [:make], []}}
+  "ranch": {:git, "https://github.com/ninenines/ranch", "741bfb73ca663394ecf7a73410506d66f01985a6", [ref: "1.1.0"]}}

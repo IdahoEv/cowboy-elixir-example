@@ -15,8 +15,8 @@ defmodule DynamicPageHandler do
   3-tuple with :ok.  We don't need to track a  state in this handler, so
   we're returning the atom :no_state.
   """
-  def init(_type, req, []) do
-    {:ok, req, :no_state}
+  def init(req, state) do
+    handle(req, state)
   end
 
   @doc """
@@ -34,7 +34,7 @@ defmodule DynamicPageHandler do
     #   * A list of 2-tuples representing headers
     #   * The body of the response
     #   * The original request
-    { :ok, reply } = :cowboy_req.reply(
+    req = :cowboy_req.reply(
 
       # status code
       200,
@@ -51,7 +51,7 @@ defmodule DynamicPageHandler do
 
     # handle/2 returns a tuple starting containing :ok, the reply, and the
     # current state of the handler.
-    {:ok, reply, state}
+    {:ok, req, state}
   end
 
 
@@ -87,7 +87,7 @@ defmodule DynamicPageHandler do
         and the code for the handler can be found in <code>lib/dynamic_page_handler.ex</code>.</p>
 
         <h2>Current Time (:erlang.now)</h2>
-        <p><span class='time'> #{inspect(:erlang.now)}</span></p>
+        <p><span class='time'> #{inspect(:erlang.timestamp)}</span></p>
         <p>Reload this page to see the time change.</p>
         <h2>Your Request Headers</h2>
         <dl>#{dl_headers(request)}</dl>
@@ -101,7 +101,7 @@ defmodule DynamicPageHandler do
   Build the contents of a <dl> containing all the request headers.
   """
   def dl_headers(request) do
-    {headers, _req2 } = :cowboy_req.headers(request)
+    headers = :cowboy_req.headers(request)
     Enum.map(headers, fn item -> "<dt>#{elem(item, 0)}</dt><dd>#{elem(item, 1)}</dd>" end)
   end
 
