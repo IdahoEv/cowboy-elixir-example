@@ -3,11 +3,11 @@ defmodule WebsocketHandler do
 
 
   # We are using the websocket handler.  See the documentation here:
-  #     http://ninenines.eu/docs/en/cowboy/1.0/manual/cowboy_http_handler//manual/websocket_handler/
+  #     http://ninenines.eu/docs/en/cowboy/1.0/manual/cowboy_websocket_handler/
   #
   # All cowboy HTTP handlers require an init() function, identifies which
   # type of handler this is and returns an initial state (if the handler
-  # maintains state).  In a websocket handler, you return a
+  # maintains state). In a websocket handler, you return a
   # 3-tuple with :upgrade as shown below.  This is essentially following
   # the specification of websocket, in which a plain HTTP request is made
   # first, which requests an upgrade to the websocket protocol.
@@ -16,8 +16,8 @@ defmodule WebsocketHandler do
   end
 
   # This is the first required callback that's specific to websocket
-  # handlers.  Here I'm returning :ok, and no state since we don't
-  # plan to track ant state.
+  # handlers. Here I'm returning :ok, and no state since we don't
+  # plan to track any state.
   #
   # Useful to know: a new process will be spawned for each connection
   # to the websocket.
