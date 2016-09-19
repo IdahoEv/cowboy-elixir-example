@@ -65,7 +65,7 @@ defmodule CowboyElixirExample do
           # Serve a single static file on the route "/".
           # PathMatch is "/"
           # Handler is :cowboy_static -- one of cowboy's built-in handlers.  See :
-          #   http://ninenines.eu/docs/en/cowboy/1.0/manual/cowboy_http_handler//manual/cowboy_static/
+          #   http://ninenines.eu/docs/en/cowboy/1.0/manual/cowboy_static/
           # Options is a tuple of { type, atom, string }.  In this case:
           #   :priv_file             -- serve a single file
           #   :cowboy_elixir_example -- application name.  This is used to search for
@@ -77,7 +77,7 @@ defmodule CowboyElixirExample do
           # Serve all static files in a directory.
           # PathMatch is "/static/[...]" -- string at [...] will be used to look up the file
           # Handler is :cowboy_static -- one of cowboy's built-in handlers.  See :
-          #   http://ninenines.eu/docs/en/cowboy/1.0/manual/cowboy_http_handler//manual/cowboy_static/
+          #   http://ninenines.eu/docs/en/cowboy/1.0/manual/cowboy_static/
           # Options is a tuple of { type, atom, string }.  In this case:
           #   :priv_dir              -- serve files from a directory
           #   :cowboy_elixir_example -- application name.  This is used to search for
