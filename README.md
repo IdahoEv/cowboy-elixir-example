@@ -1,7 +1,7 @@
 Cowboy Elixir Example
 ===================
 
-Examples of using the [Cowboy web server](http://ninenines.eu/docs/) with [Elixir](http://elixir-lang.org/).  I wrote these because as a newcomer to Elixir I  found the documenation for Cowboy to be inscrutable and difficult: commands often take deep data structures as arguments and those structures are sparsely documented at best.  Also, all the up-to-date examples were in Erlang, rather than Elixir.
+Examples of using the [Cowboy web server](http://ninenines.eu/docs/) with [Elixir](http://elixir-lang.org/).  I wrote these because as a newcomer to Elixir in 2014 I found the documenation for Cowboy to be inscrutable and difficult: commands often take deep data structures as arguments and those structures are sparsely documented at best.  Also, all the up-to-date examples were in Erlang, rather than Elixir.
 
 My goal here is to show simple usage of the main features of Cowboy, with plenty of documentation, to save others the time I spent puzzling this out.
 
