@@ -7,7 +7,9 @@ My goal here is to show simple usage of the main features of Cowboy, with plenty
 
 This is tested to work with:
 * Elixir 1.3.x, 1.2.x, 1.0.x, and  0.15.1 (with edit to dependencies)
-* Cowboy 1.0.x
+* Cowboy 2.0.x
+
+For Cowboy 1.0.x, see the [`cowboy_1`](https://github.com/IdahoEv/cowboy-elixir-example/tree/cowboy_1) branch.
 
 Usage:
 ------------------
@@ -29,12 +31,17 @@ Examples included:
 * (Planned) Accepting a GET request and replying with a JSON object
 * (Planned) Update to Cowboy 2
 
+Contributors:
+-------------
+
+* [Marconi Moreto Jr.](https://github.com/marconi)
+* [Evan Dorn](https://github.com/idahoev)
 
 Contributing:
 -------------
 
 Pull requests are welcomed.  Since this is an example designed for folks new to both Elixir and Cowboy,
-make sure all code is very thoroughly documented, please. :-)
+make sure all code is very thoroughly documented, please. :)
 
 License:
 --------
