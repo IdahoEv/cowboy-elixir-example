@@ -6,7 +6,7 @@ Examples of using the [Cowboy web server](http://ninenines.eu/docs/) with [Elixi
 My goal here is to show simple usage of the main features of Cowboy, with plenty of documentation, to save others the time I spent puzzling this out.
 
 This is tested to work with:
-* Elixir 1.3.x, 1.2.x, 1.0.x, and  0.15.1 (with edit to dependencies)
+* Elixir 1.4.x, 1.3.x, 1.2.x, 1.0.x, and  0.15.1 (with edit to dependencies)
 * Cowboy 2.0.x
 
 For Cowboy 1.0.x, see the [`cowboy_1`](https://github.com/IdahoEv/cowboy-elixir-example/tree/cowboy_1) branch.
