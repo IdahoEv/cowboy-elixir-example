@@ -10,7 +10,7 @@ defmodule WebsocketHandler do
   # then add the same header to `req` with value containing
   # supported protocol(s).
   def init(req, state) do
-    :erlang.start_timer(1000, self, [])
+    :erlang.start_timer(1000, self(), [])
     {:cowboy_websocket, req, state}
   end
 
@@ -62,7 +62,7 @@ defmodule WebsocketHandler do
     # set a new timer to send a :timeout message back to this
     # process a second from now. This will recursively call
     # this handler, acting as a tick.
-    :erlang.start_timer(1000, self, [])
+    :erlang.start_timer(1000, self(), [])
 
     # send the new message to the client. Note that even though there was no
     # incoming message from the client, we still call the outbound message

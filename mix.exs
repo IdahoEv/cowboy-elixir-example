@@ -5,7 +5,7 @@ defmodule CowboyElixirExample.Mixfile do
     [app: :cowboy_elixir_example,
      version: "0.0.3",
      elixir: ">= 1.0.0",
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
