@@ -20,10 +20,10 @@ defmodule CowboyElixirExample do
   """
   def start(_type, _args) do
     dispatch_config = build_dispatch_config
-    { :ok, _ } = :cowboy.start_http(:http,
+    { :ok, _ } = :cowboy.start_clear(
                                     100,
                                    [{:port, 8080}],
-                                   [{ :env, [{:dispatch, dispatch_config}]}]
+                                   %{env: %{dispatch: dispatch_config}}
                                    )
 
   end
